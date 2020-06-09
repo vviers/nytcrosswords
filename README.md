@@ -1,2 +1,2 @@
 # New York Times Crosswords - Data Exploration
-data can be found here []
+Data can be found [here](github.com/doshea/nyt_crosswords).
