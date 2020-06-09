@@ -1,5 +1,6 @@
 import logging
 import re
+import pandas as pd
 import requests
 
 
@@ -69,3 +70,13 @@ class NYTGrid:
     def print_questions_answers(self, orientation: str = "across"):
         for question, answer in zip(self.clues[orientation], self.answers[orientation]):
             print(f"{question.ljust(50)}: {answer.rjust(20)}")
+
+    def to_df(self):
+        """
+            Return a pandas df with columns "clue" and "answer"
+        """
+        clues = self.clues["across"].copy()
+        clues.extend(self.clues["down"])
+        answers = self.answers["across"].copy()
+        answers.extend(self.clues["down"])
+        return pd.DataFrame({"clue": clues, "answer": answers})
