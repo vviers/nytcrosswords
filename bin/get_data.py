@@ -1,5 +1,6 @@
 import click
 
+
 @click.command()
 @click.option(
     "--date", required=True, help="Date (YYYY/MM/DD) to get data for.",
@@ -14,10 +15,12 @@ def main(date: str):
         Args:
             date (str): Date (YYYY/MM/DD) to get data for.
     """
-    return analyse_data()
+    return analyse_data(date)
 
-def analyse_data():
-    pass
+
+def analyse_data(date: str):
+    return date
+
 
 if __name__ == "__main__":
-    main()
+    main("")
